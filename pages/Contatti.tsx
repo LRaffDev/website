@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import gsap from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";

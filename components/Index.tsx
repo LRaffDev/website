@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import gsap from "gsap";
+import gsap from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
 
 import About from "../pages/About";

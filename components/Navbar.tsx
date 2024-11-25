@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import gsap from "gsap";
+import gsap from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 
 import { IoCloseSharp } from "react-icons/io5";
 import { MdOutlineMenu } from 'react-icons/md'

@@ -3,7 +3,7 @@
 import supabase from '@/lib/client';
 import React, { useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import gsap from 'gsap/dist/gsap';
 import { PortType } from '@/types/porttype';
 import Card from '../components/Card';
 

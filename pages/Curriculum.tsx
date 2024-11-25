@@ -3,9 +3,9 @@
 import React from "react";
 import Image from "next/image";
 
-import gsap from "gsap";
+import gsap from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import supabase from '@/lib/client'
 
 export default function Curriculum() {
