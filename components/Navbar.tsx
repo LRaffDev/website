@@ -8,7 +8,7 @@ import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import { IoCloseSharp } from "react-icons/io5";
 import { MdOutlineMenu } from 'react-icons/md'
 export default function Navbar() {
-    gsap.registerPlugin(ScrollToPlugin);
+    gsap.registerPlugin(ScrollToPlugin, useGSAP);
      const mobile = () => {
         if (typeof window != undefined) {
           return (

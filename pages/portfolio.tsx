@@ -8,6 +8,7 @@ import { PortType } from '@/types/porttype';
 import Card from '../components/Card';
 
 export default function Portfolio() {
+    gsap.registerPlugin(useGSAP);
     const [portfolio, setPortfolio] = useState<PortType[]>([]);
     const mm = gsap.matchMedia();
     const fetcher = async () => {

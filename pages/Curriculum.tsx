@@ -11,7 +11,7 @@ import supabase from '@/lib/client'
 export default function Curriculum() {
     gsap.registerPlugin(ScrollTrigger, useGSAP);
 const curriculum = async () => {
-    const { data} = await supabase.storage.from('curriculum').getPublicUrl('cv.pdf');
+    const { data } = await supabase.storage.from('curriculum').getPublicUrl('cv.pdf');
     window.open(data.publicUrl, '_blank');
 }
 
