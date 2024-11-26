@@ -1,7 +1,7 @@
 'use client';
 
 import supabase from '@/lib/client';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallba, useCallback } from 'react'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap/dist/gsap';
 import { PortType } from '@/types/porttype';
@@ -11,7 +11,8 @@ export default function Portfolio() {
     gsap.registerPlugin(useGSAP);
     const [portfolio, setPortfolio] = useState<PortType[]>([]);
     const mm = gsap.matchMedia();
-    const fetcher = async () => {
+
+    const fetcher = useCallback(async () => {
         const { data, error } = await supabase.from('portfolio').select('*');
         if(error) {
             console.error('ERRORE', error)
@@ -19,7 +20,7 @@ export default function Portfolio() {
         else {
             setPortfolio(data);
         }
-    }
+    }, []);
 useEffect(() => {
     fetcher();
 }, [fetcher]);
