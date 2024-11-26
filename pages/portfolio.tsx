@@ -11,8 +11,17 @@ export default function Portfolio() {
     gsap.registerPlugin(useGSAP);
     const [portfolio, setPortfolio] = useState<PortType[]>([]);
     const mm = gsap.matchMedia();
-
-    const fetcher = useCallback(async () => {
+    // const fetcher = useCallback(async () => {
+    //     const { data, error } = await supabase.from('portfolio').select('*');
+    //     if(error) {
+    //         console.error('ERRORE', error)
+    //     }
+    //     else {
+    //         setPortfolio(data);
+    //     }
+    // }, []);
+useEffect(() => {
+        const fetcher = async () => {
         const { data, error } = await supabase.from('portfolio').select('*');
         if(error) {
             console.error('ERRORE', error)
@@ -20,10 +29,9 @@ export default function Portfolio() {
         else {
             setPortfolio(data);
         }
-    }, []);
-useEffect(() => {
+    }
     fetcher();
-}, [fetcher]);
+}, []);
 
 
 useGSAP(() => {
