@@ -3,6 +3,11 @@
 import { PortType } from "@/types/porttype";
 import Image from 'next/image';
 
+/**
+ * Componente che rappresenta un progetto all'interno della pagina Portfolio.
+ * @param {{ portfolio: PortType }} props - Oggetto che contiene le informazioni del progetto
+ * @returns {JSX.Element} Componente JSX che rappresenta il progetto
+ */
 const Card = ({ portfolio }: { portfolio: PortType }) => (
     <div
         key={portfolio.id}

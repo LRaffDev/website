@@ -8,6 +8,16 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import gsap from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
+/**
+ * Componente per la sezione Contatti
+ *
+ * Questa componente contiene un'immagine di un telefono,
+ * un titolo e un testo che descrive come contattarmi.
+ * Inoltre contiene un pulsante per aprire la pagina del mio profilo su LinkedIn
+ * e un pulsante per aprire la pagina del mio profilo su GitHub
+ *
+ * @returns {JSX.Element} Componente per la sezione Contatti
+ */
 export default function Contatti() {
     gsap.registerPlugin(ScrollTrigger, useGSAP);
   const mm = gsap.matchMedia();
@@ -37,14 +47,18 @@ export default function Contatti() {
         className="hidden md:block"
       />
       <div className="pl-16">
+        {/* Titolo */}
         <h1 className="text-emerald-400 md:text-4xl text-2xl pb-3">
           Rimaniamo in Contatto
         </h1>
+        {/* Testo */}
         <p className="text-xl md:text-3xl">
-          Puoi contattarmi mandandomi un email o collegandoti alla mia rete su
+          Puoi contattarmi mandandomi un&apos;email o collegandoti alla mia rete su
           LinkedIn
         </p>
+        {/* Pulsanti per aprire i profili */}
         <div className="flex flex-col items-start md:text-3xl text-xl pt-4">
+          {/* Pulsante per aprire la pagina del mio profilo su LinkedIn */}
           <button
             type="button"
             onClick={() => {
@@ -55,6 +69,7 @@ export default function Contatti() {
             <FaLinkedinIn />
             LC-Raffaele
           </button>
+          {/* Pulsante per aprire la pagina del mio profilo su GitHub */}
           <button
             onClick={() => {
               window.open("https://github.com/LRaffDev", "_blank");
@@ -64,7 +79,8 @@ export default function Contatti() {
             <FaGithub />
             LRaffDev
           </button>
-          <button onClick={() => {}} className="flex gap-2 items-center">
+          {/* Pulsante per aprire la pagina dell'email */}
+          <button onClick={() => {window.open("mailto:raffaele.la.cerra@outlook.it", "_blank")}} className="flex gap-2 items-center">
             <MdEmail />
             raffaele.la.cerra@outlook.it
           </button>

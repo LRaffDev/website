@@ -8,14 +8,32 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import supabase from '@/lib/client'
 
+
+/**
+ * Componente per la sezione Curriculum
+ *
+ * Questo componente visualizza una sezione con un titolo,
+ * un testo descrittivo e un pulsante per aprire il curriculum vitae
+ * in formato PDF. Utilizza GSAP per animazioni di scorrimento.
+ *
+ * @returns {JSX.Element} Componente per la sezione Curriculum
+ */
 export default function Curriculum() {
-    gsap.registerPlugin(ScrollTrigger, useGSAP);
-const curriculum = async () => {
+  // Registra i plugin di GSAP
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+  /**
+   * Funzione asincrona per ottenere l'URL pubblico del curriculum vitae
+   * e aprirlo in una nuova scheda del browser.
+   */
+  const downloadCv = async () => {
     const { data } = await supabase.storage.from('curriculum').getPublicUrl('cv.pdf');
     window.open(data.publicUrl, '_blank');
-}
+  }
 
   const mm = gsap.matchMedia();
+
+  // Configura l'animazione di scorrimento per la sezione curriculum
   useGSAP(() => {
     mm.add("(min-width: 769px)", () => {
       gsap.from(".curriculum", {
@@ -36,16 +54,18 @@ const curriculum = async () => {
   return (
     <section className="curriculum flex items-center justify-center md:pb-40 md:pt-60 py-12">
       <div className="px-3">
+        {/* Titolo della sezione */}
         <h1 className="text-emerald-400 md:text-4xl text-2xl py-4">
           Sono stato convincente?
         </h1>
+        {/* Testo descrittivo */}
         <p className="md:text-3xl text-xl pb-5">
           (spero di si) ad ogni modo per scoprire le mie esperienze lavorative{" "}
           <br />
           puoi trovare il mio curriculum
         </p>
-
-        <button className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-bold rounded-lg group" onClick={() => curriculum()}>
+        {/* Pulsante per aprire il curriculum */}
+        <button className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-bold rounded-lg group" onClick={() => downloadCv()}>
           <span className="w-32 h-32 rotate-45 translate-x-14 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>{" "}
           {/* Sfondo animazione */}
           <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-2"></span>
@@ -57,7 +77,7 @@ const curriculum = async () => {
           {/* Pulsante statico*/}
         </button>
       </div>
-
+      {/* Immagine di un computer */}
       <Image
         src="/pc.png"
         width="512"
